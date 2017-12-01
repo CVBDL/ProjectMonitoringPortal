@@ -1,0 +1,28 @@
+@import '~@angular/material/theming';
+@import '../theme/pmp-light.scss';
+
+:host {
+  display: block;
+}
+
+header {
+  @include mat-elevation(6);
+
+  background-color: mat-color($pmp-app-primary);
+  height: 64px;
+  padding: 0 24px;
+}
+
+.header-content {
+  height: 100%;
+}
+
+.header__logo {
+  height: 32px;
+  padding-right: 16px;
+}
+
+.header__title {
+  color: white;
+  margin: 0;
+}

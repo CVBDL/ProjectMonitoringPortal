@@ -1,3 +1,12 @@
-/* You can add global styles to this file, and also import other style files */
+// CSS reset
+@import "~normalize.css/normalize.css";
+
+// Change from `box-sizing: content-box` so that `width` is not
+// affected by `padding` or `border`.
+*,
+*::before,
+*::after {
+  box-sizing: border-box; // 1
+}
 
 @import "~@angular/material/prebuilt-themes/indigo-pink.css";
