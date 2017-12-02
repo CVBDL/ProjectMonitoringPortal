@@ -1,18 +1,7 @@
 // Reset CSS.
-@import "~normalize.css/normalize.css";
+@import '~normalize.css/normalize.css';
 
 // Suppress angular material warning.
-@import "~@angular/material/prebuilt-themes/indigo-pink.css";
+@import '~@angular/material/prebuilt-themes/indigo-pink.css';
 
-// Change from `box-sizing: content-box` so that `width` is not
-// affected by `padding` or `border`.
-*,
-*::before,
-*::after {
-  box-sizing: border-box;
-}
-
-html,
-body {
-  height: 100%;
-}
+@import "./app/core/style/style.scss";
