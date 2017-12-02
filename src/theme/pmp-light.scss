@@ -16,7 +16,9 @@ $pmp-app-accent:  mat-palette($mat-green, 500);
 $pmp-app-warn:    mat-palette($mat-red);
 
 // Create the theme object (a Sass map containing all of the palettes).
-$pmp-app-theme: mat-light-theme($pmp-app-primary, $pmp-app-accent, $pmp-app-warn);
+$pmp-app-theme: mat-light-theme($pmp-app-primary,
+                                $pmp-app-accent,
+                                $pmp-app-warn);
 
 // Include theme styles for core and each component used in your app.
 // Alternatively, you can import and @include the theme mixins for each component

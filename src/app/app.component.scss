@@ -8,6 +8,12 @@
 header {
   @include mat-elevation(6);
 
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 10;
+
   background-color: mat-color($pmp-app-primary);
   height: 64px;
   padding: 0 24px;
@@ -25,4 +31,14 @@ header {
 .header__title {
   color: white;
   margin: 0;
+}
+
+main {
+  position: absolute;
+  top: 64px;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  overflow: auto;
+  padding: 0 24px;
 }
