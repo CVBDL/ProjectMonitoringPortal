@@ -3,7 +3,8 @@
 @import './core/style/helpers/helpers';
 
 
-$pmp-header-height: 64px;
+$pmp-header-height:  64px;
+$pmp-nav-width:     320px;
 
 
 :host {
@@ -38,13 +39,26 @@ header {
   margin: 0;
 }
 
+nav {
+  width: $pmp-nav-width;
+
+  position: fixed;
+  top: $pmp-header-height;
+  left: 0;
+  bottom: 0;
+  z-index: 8;
+  overflow: auto;
+  -webkit-overflow-scrolling: touch;
+}
+
 main {
   padding: 0 $pmp-content-padding;
 
   position: absolute;
   top: $pmp-header-height;
-  left: 0;
+  left: $pmp-nav-width;
   right: 0;
   bottom: 0;
   overflow: auto;
+  -webkit-overflow-scrolling: touch;
 }

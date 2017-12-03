@@ -1,7 +1,10 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 
+import { MatButtonModule } from '@angular/material/button';
+import { MatExpansionModule } from '@angular/material/expansion';
 import { MatIconModule } from '@angular/material';
+import { MatListModule } from '@angular/material/list';
 
 import { LogoComponent } from "./logo/logo.component";
 
@@ -9,12 +12,20 @@ import { LogoComponent } from "./logo/logo.component";
 @NgModule({
   imports: [
     CommonModule,
-    MatIconModule
+    MatButtonModule,
+    MatExpansionModule,
+    MatIconModule,
+    MatListModule
   ],
   exports: [
     LogoComponent,
-    MatIconModule
+    MatButtonModule,
+    MatExpansionModule,
+    MatIconModule,
+    MatListModule
   ],
-  declarations: [LogoComponent]
+  declarations: [
+    LogoComponent
+  ]
 })
 export class CoreModule { }

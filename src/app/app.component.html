@@ -8,28 +8,71 @@
     </div>
   </div>  
 </header>
+<nav>
+  <mat-expansion-panel [expanded]='true'>
+    <mat-expansion-panel-header>
+      <mat-panel-title>
+        Programming Paradigms
+      </mat-panel-title>
+    </mat-expansion-panel-header>
+    <mat-nav-list>
+      <mat-list-item>
+        <a matLine (click)="showInfo()" href="#">Imperative</a>
+      </mat-list-item>
+      <mat-list-item>
+        <a matLine (click)="showInfo()" href="#">Functional</a>
+      </mat-list-item>
+      <mat-list-item>
+        <a matLine (click)="showInfo()" href="#">Declarative</a>
+      </mat-list-item>
+      <mat-list-item>
+        <a matLine (click)="showInfo()" href="#">Object-Oriented</a>
+      </mat-list-item>
+      <mat-list-item>
+        <a matLine (click)="showInfo()" href="#">Other</a>
+      </mat-list-item>
+    </mat-nav-list>
+  </mat-expansion-panel>
+  <mat-expansion-panel [expanded]='true'>
+    <mat-expansion-panel-header>
+      <mat-panel-title>
+        Programming Languages
+      </mat-panel-title>
+    </mat-expansion-panel-header>
+    <p>Overview</p>
+    <p>C++</p>
+    <p>Java</p>
+    <p>C Sharp</p>
+    <p>Other</p>
+  </mat-expansion-panel>
+  <mat-expansion-panel [expanded]='true'>
+    <mat-expansion-panel-header>
+      <mat-panel-title>
+        Operating Systems
+      </mat-panel-title>
+    </mat-expansion-panel-header>
+    <p>Overview</p>
+    <p>Unix and Unix-like</p>
+    <p>macOS</p>
+    <p>Linux</p>
+    <p>Microsoft Windows</p>
+    <p>Other</p>
+  </mat-expansion-panel>
+  <mat-expansion-panel [expanded]='true'>
+    <mat-expansion-panel-header>
+      <mat-panel-title>
+        Social Media
+      </mat-panel-title>
+    </mat-expansion-panel-header>
+    <p>Facebook</p>
+    <p>Twitter</p>
+    <p>Weibo</p>
+    <p>LinkedIn</p>
+    <p>Other</p>
+  </mat-expansion-panel>
+</nav>
 <main>
   <router-outlet></router-outlet>
-  <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Id soluta quasi iste possimus sed tempora praesentium quod, asperiores, quam voluptate corporis eligendi nisi, facere consectetur excepturi cumque magni veritatis unde?</p>
-  <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Id soluta quasi iste possimus sed tempora praesentium quod, asperiores, quam voluptate corporis eligendi nisi, facere consectetur excepturi cumque magni veritatis unde?</p>
-  <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Id soluta quasi iste possimus sed tempora praesentium quod, asperiores, quam voluptate corporis eligendi nisi, facere consectetur excepturi cumque magni veritatis unde?</p>
-  <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Id soluta quasi iste possimus sed tempora praesentium quod, asperiores, quam voluptate corporis eligendi nisi, facere consectetur excepturi cumque magni veritatis unde?</p>
-  <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Id soluta quasi iste possimus sed tempora praesentium quod, asperiores, quam voluptate corporis eligendi nisi, facere consectetur excepturi cumque magni veritatis unde?</p>
-  <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Id soluta quasi iste possimus sed tempora praesentium quod, asperiores, quam voluptate corporis eligendi nisi, facere consectetur excepturi cumque magni veritatis unde?</p>
-  <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Id soluta quasi iste possimus sed tempora praesentium quod, asperiores, quam voluptate corporis eligendi nisi, facere consectetur excepturi cumque magni veritatis unde?</p>
-  <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Id soluta quasi iste possimus sed tempora praesentium quod, asperiores, quam voluptate corporis eligendi nisi, facere consectetur excepturi cumque magni veritatis unde?</p>
-  <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Id soluta quasi iste possimus sed tempora praesentium quod, asperiores, quam voluptate corporis eligendi nisi, facere consectetur excepturi cumque magni veritatis unde?</p>
-  <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Id soluta quasi iste possimus sed tempora praesentium quod, asperiores, quam voluptate corporis eligendi nisi, facere consectetur excepturi cumque magni veritatis unde?</p>
-  <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Id soluta quasi iste possimus sed tempora praesentium quod, asperiores, quam voluptate corporis eligendi nisi, facere consectetur excepturi cumque magni veritatis unde?</p>
-  <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Id soluta quasi iste possimus sed tempora praesentium quod, asperiores, quam voluptate corporis eligendi nisi, facere consectetur excepturi cumque magni veritatis unde?</p>
-  <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Id soluta quasi iste possimus sed tempora praesentium quod, asperiores, quam voluptate corporis eligendi nisi, facere consectetur excepturi cumque magni veritatis unde?</p>
-  <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Id soluta quasi iste possimus sed tempora praesentium quod, asperiores, quam voluptate corporis eligendi nisi, facere consectetur excepturi cumque magni veritatis unde?</p>
-  <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Id soluta quasi iste possimus sed tempora praesentium quod, asperiores, quam voluptate corporis eligendi nisi, facere consectetur excepturi cumque magni veritatis unde?</p>
-  <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Id soluta quasi iste possimus sed tempora praesentium quod, asperiores, quam voluptate corporis eligendi nisi, facere consectetur excepturi cumque magni veritatis unde?</p>
-  <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Id soluta quasi iste possimus sed tempora praesentium quod, asperiores, quam voluptate corporis eligendi nisi, facere consectetur excepturi cumque magni veritatis unde?</p>
-  <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Id soluta quasi iste possimus sed tempora praesentium quod, asperiores, quam voluptate corporis eligendi nisi, facere consectetur excepturi cumque magni veritatis unde?</p>
-  <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Id soluta quasi iste possimus sed tempora praesentium quod, asperiores, quam voluptate corporis eligendi nisi, facere consectetur excepturi cumque magni veritatis unde?</p>
-  <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Id soluta quasi iste possimus sed tempora praesentium quod, asperiores, quam voluptate corporis eligendi nisi, facere consectetur excepturi cumque magni veritatis unde?</p>
   <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Id soluta quasi iste possimus sed tempora praesentium quod, asperiores, quam voluptate corporis eligendi nisi, facere consectetur excepturi cumque magni veritatis unde?</p>
   <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Id soluta quasi iste possimus sed tempora praesentium quod, asperiores, quam voluptate corporis eligendi nisi, facere consectetur excepturi cumque magni veritatis unde?</p>
 </main>
