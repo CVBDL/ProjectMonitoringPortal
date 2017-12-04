@@ -6,6 +6,7 @@ import { FlexLayoutModule } from '@angular/flex-layout';
 
 import { AppRoutingModule } from './app-routing.module';
 import { CoreModule } from "./core/core.module";
+import { ReportModule } from "./report/report.module";
 
 import { AppComponent } from './app.component';
 
@@ -19,6 +20,7 @@ import { AppComponent } from './app.component';
     BrowserAnimationsModule,
     CoreModule,
     FlexLayoutModule,
+    ReportModule,
     AppRoutingModule
   ],
   providers: [],
