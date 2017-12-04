@@ -3,9 +3,9 @@
     <div class="header__logo">
       <pmp-logo></pmp-logo>
     </div>
-    <div class="header__title mat-title">
+    <h1 class="header__title mat-headline">
       Welcome to Portal
-    </div>
+    </h1>
   </div>  
 </header>
 <nav>
@@ -17,16 +17,16 @@
     </mat-expansion-panel-header>
     <mat-nav-list dense>
       <mat-list-item>
-        <a matLine (click)="showInfo()" href="#">Imperative</a>
+        <a matLine routerLink="/imperative">Imperative</a>
       </mat-list-item>
       <mat-list-item>
-        <a matLine (click)="showInfo()" href="#">Functional</a>
+        <a matLine routerLink="/functional">Functional</a>
       </mat-list-item>
       <mat-list-item>
-        <a matLine (click)="showInfo()" href="#">Declarative</a>
+        <a matLine href="#">Declarative</a>
       </mat-list-item>
       <mat-list-item>
-        <a matLine (click)="showInfo()" href="#">Object-Oriented</a>
+        <a matLine href="#">Object-Oriented</a>
       </mat-list-item>
     </mat-nav-list>
   </mat-expansion-panel>

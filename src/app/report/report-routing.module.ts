@@ -1,14 +1,20 @@
 import { NgModule } from "@angular/core";
-import { Routes, RouterModule } from "@angular/router";
+import { Routes, RouterLink, RouterModule } from "@angular/router";
 
 import { ReportComponent } from "./report.component";
 
 const routes: Routes = [{
   path: 'imperative',
-  component: ReportComponent
+  component: ReportComponent,
+  data: {
+    key: 'imperative'
+  }
 }, {
   path: 'functional',
-  component: ReportComponent
+  component: ReportComponent,
+  data: {
+    key: 'functional'
+  }
 }, {
   path: 'declarative',
   component: ReportComponent
