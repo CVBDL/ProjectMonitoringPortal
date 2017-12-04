@@ -10,3 +10,19 @@ html,
 body {
   height: 100%;
 }
+
+// Customizing Angular Material component styles
+nav {
+  .mat-nav-list[dense] {
+    padding-top: 0;
+    padding-bottom: 16px;
+  }
+
+  .mat-expansion-panel-body {
+    padding: 0;
+  }
+
+  .mat-list-item-content {
+    padding: 0 40px !important;
+  }
+}
