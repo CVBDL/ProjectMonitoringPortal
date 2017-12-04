@@ -7,6 +7,7 @@ import { MatIconModule } from '@angular/material';
 import { MatListModule } from '@angular/material/list';
 
 import { LogoComponent } from "./logo/logo.component";
+import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
 
 
 @NgModule({
@@ -25,7 +26,8 @@ import { LogoComponent } from "./logo/logo.component";
     MatListModule
   ],
   declarations: [
-    LogoComponent
+    LogoComponent,
+    PageNotFoundComponent
   ]
 })
 export class CoreModule { }
