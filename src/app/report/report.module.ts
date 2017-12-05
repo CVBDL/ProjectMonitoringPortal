@@ -1,7 +1,11 @@
 import { NgModule } from "@angular/core";
 import { FlexLayoutModule } from '@angular/flex-layout';
 
-import { MatButtonModule } from '@angular/material';
+import {
+  MatButtonModule,
+  MatIconModule,
+  MatListModule
+} from '@angular/material';
 
 import { ReportRoutingModule } from "./report-routing.module";
 
@@ -11,6 +15,8 @@ import { ReportComponent } from "./report.component";
   imports: [
     FlexLayoutModule,
     MatButtonModule,
+    MatIconModule,
+    MatListModule,
     ReportRoutingModule
   ],
   declarations: [

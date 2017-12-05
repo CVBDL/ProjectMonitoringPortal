@@ -2,10 +2,15 @@
   display: block;
 }
 
-.matrix-body {
-  padding: 16px;
+h2,
+h3 {
+  padding-left: 16px;
 }
 
 h3 {
   text-transform: uppercase;
+}
+
+section {
+  padding-top: 16px;
 }

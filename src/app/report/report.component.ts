@@ -28,4 +28,8 @@ export class ReportComponent implements OnInit {
     });
   }
 
+  ok() {
+    console.log(1)
+  }
+
 }
