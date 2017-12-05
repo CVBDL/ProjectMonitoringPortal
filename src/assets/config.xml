@@ -1,0 +1,17 @@
+<?xml version="1.0"?>
+<Products name="Program">
+    <Bucket title="Programming Languages" id="programminglanguages">
+        <Product title="Java" id="java">
+            <Charts title="PROGRESS MATRIX">
+                <ChartGroup title="Trend" time="Dec 5, 2017">
+                    <Chart title="Weekly Trend" url="#" time="Dec 5, 2017" />
+                    <Chart title="Trend by Epic" url="#" time="Dec 5, 2017" />
+                    <Chart title="Trend by Team" url="#" time="Dec 5, 2017" />
+                </ChartGroup>
+                <ChartGroup title="Throughput-Velocity" time="Dec 5, 2017">
+                    <Chart title="Throughput-Velocity by sprint" url="#" time="Dec 5, 2017" />
+                </ChartGroup>
+            </Charts>
+        </Product>
+    </Bucket>
+</Products>

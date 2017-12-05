@@ -9,111 +9,19 @@
   </div>  
 </header>
 <nav>
-  <mat-expansion-panel [expanded]='true'>
+  <mat-expansion-panel *ngFor="let navItem of navItems" [expanded]='true'>
     <mat-expansion-panel-header>
       <mat-panel-title class="mat-body-1">
-        Programming Paradigms
+        {{navItem.title}}
       </mat-panel-title>
     </mat-expansion-panel-header>
-    <mat-nav-list dense>
-      <mat-list-item>
-        <a matLine routerLink="/imperative">Imperative</a>
-      </mat-list-item>
-      <mat-list-item>
-        <a matLine routerLink="/functional">Functional</a>
-      </mat-list-item>
-      <mat-list-item>
-        <a matLine href="#">Declarative</a>
-      </mat-list-item>
-      <mat-list-item>
-        <a matLine href="#">Object-Oriented</a>
-      </mat-list-item>
-    </mat-nav-list>
-  </mat-expansion-panel>
-  <mat-expansion-panel [expanded]='true'>
-    <mat-expansion-panel-header>
-      <mat-panel-title class="mat-body-1">
-        Programming Languages
-      </mat-panel-title>
-    </mat-expansion-panel-header>
-    <mat-nav-list dense>
-      <mat-list-item>
-        <a matLine (click)="showInfo()" href="#">Overview</a>
-      </mat-list-item>
-      <mat-list-item>
-        <a matLine (click)="showInfo()" href="#">C++</a>
-      </mat-list-item>
-      <mat-list-item>
-        <a matLine (click)="showInfo()" href="#">Java</a>
-      </mat-list-item>
-      <mat-list-item>
-        <a matLine (click)="showInfo()" href="#">C Sharp</a>
-      </mat-list-item>
-    </mat-nav-list>
-  </mat-expansion-panel>
-  <mat-expansion-panel [expanded]='true'>
-    <mat-expansion-panel-header>
-      <mat-panel-title class="mat-body-1">
-        Operating Systems
-      </mat-panel-title>
-    </mat-expansion-panel-header>
-    <mat-nav-list dense>
-      <mat-list-item>
-        <a matLine (click)="showInfo()" href="#">Overview</a>
-      </mat-list-item>
-      <mat-list-item>
-        <a matLine (click)="showInfo()" href="#">Unix and Unix-like</a>
-      </mat-list-item>
-      <mat-list-item>
-        <a matLine (click)="showInfo()" href="#">macOS</a>
-      </mat-list-item>
-      <mat-list-item>
-        <a matLine (click)="showInfo()" href="#">Linux</a>
-      </mat-list-item>
-      <mat-list-item>
-        <a matLine (click)="showInfo()" href="#">Microsoft Windows</a>
-      </mat-list-item>
-    </mat-nav-list>
-  </mat-expansion-panel>
-  <mat-expansion-panel [expanded]='true'>
-    <mat-expansion-panel-header>
-      <mat-panel-title class="mat-body-1">
-        Other
-      </mat-panel-title>
-    </mat-expansion-panel-header>
-    <mat-nav-list dense>
-      <mat-list-item>
-        <a matLine (click)="showInfo()" href="#">Other</a>
-      </mat-list-item>
-      <mat-list-item>
-        <a matLine (click)="showInfo()" href="#">Other</a>
-      </mat-list-item>
-      <mat-list-item>
-        <a matLine (click)="showInfo()" href="#">Other</a>
-      </mat-list-item>
-      <mat-list-item>
-        <a matLine (click)="showInfo()" href="#">Other</a>
-      </mat-list-item>
-      <mat-list-item>
-        <a matLine (click)="showInfo()" href="#">Other</a>
-      </mat-list-item>
-      <mat-list-item>
-        <a matLine (click)="showInfo()" href="#">Other</a>
-      </mat-list-item>
-      <mat-list-item>
-        <a matLine (click)="showInfo()" href="#">Other</a>
-      </mat-list-item>
-      <mat-list-item>
-        <a matLine (click)="showInfo()" href="#">Other</a>
-      </mat-list-item>
-      <mat-list-item>
-        <a matLine (click)="showInfo()" href="#">Other</a>
+    <mat-nav-list *ngIf="navItem.items" dense>
+      <mat-list-item *ngFor="let subNavItem of navItem.items">
+        <a matLine routerLink="{{subNavItem.link}}">{{subNavItem.title}}</a>
       </mat-list-item>
     </mat-nav-list>
   </mat-expansion-panel>
 </nav>
 <main>
   <router-outlet></router-outlet>
-  <!-- <p class="mat-body-1">Lorem, ipsum dolor sit amet consectetur adipisicing elit. Id soluta quasi iste possimus sed tempora praesentium quod, asperiores, quam voluptate corporis eligendi nisi, facere consectetur excepturi cumque magni veritatis unde?</p>
-  <p class="mat-body-1">Lorem, ipsum dolor sit amet consectetur adipisicing elit. Id soluta quasi iste possimus sed tempora praesentium quod, asperiores, quam voluptate corporis eligendi nisi, facere consectetur excepturi cumque magni veritatis unde?</p> -->
 </main>

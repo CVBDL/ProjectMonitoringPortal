@@ -4,22 +4,10 @@ import { Routes, RouterLink, RouterModule } from "@angular/router";
 import { ReportComponent } from "./report.component";
 
 const routes: Routes = [{
-  path: 'imperative',
-  component: ReportComponent,
-  data: {
-    key: 'imperative'
-  }
-}, {
-  path: 'functional',
-  component: ReportComponent,
-  data: {
-    key: 'functional'
-  }
-}, {
-  path: 'declarative',
+  path: ':program',
   component: ReportComponent
 }, {
-  path: 'object-oriented',
+  path: ':program/:product',
   component: ReportComponent
 }];
 

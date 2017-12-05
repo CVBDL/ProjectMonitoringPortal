@@ -13,18 +13,8 @@ export class ReportComponent implements OnInit {
   }
 
   ngOnInit() {
-    this.activatedRoute.data.subscribe(data => {
-      switch (data.key) {
-        case 'imperative':
-          this.title = 'Imperative Programming';
-          break;
-        case 'functional':
-          this.title = 'Functional Programming';
-          break;
-        default:
-          this.title = 'Default title';
-          break;
-      }
+    this.activatedRoute.paramMap.subscribe(d => {
+      console.log(d)
     });
   }
 
