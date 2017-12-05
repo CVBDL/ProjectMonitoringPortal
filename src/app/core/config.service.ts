@@ -8,7 +8,6 @@ import { switchMap } from 'rxjs/operators';
 
 import { Bucket } from "./bucket.model";
 import { Program } from "./program.model";
-import { Element } from "@angular/compiler";
 import { Product } from "./product.model";
 import { Charts } from "./charts.model";
 import { ChartGroup } from "./chart-group.model";
@@ -22,55 +21,38 @@ export class ConfigService {
     return this.http.get('./assets/config.xml', { responseType: 'text' })
       .pipe(
         switchMap(xml => this.parseConfigXml(xml))
-      )
-      // .subscribe(xml => {
-      //   try {
-      //     const parser = new DOMParser();
-      //     const doc = parser.parseFromString(xml, "application/xml");
-      //   } catch (e) {
-      //     return rxThrow('Error parsing config XML file.');
-      //   }
-      // });
-
-    // var config = {
-    //   id: 'program',
-    //   title: 'Program',
-    //   items: [{
-    //     id: 'programmingparadigms',
-    //     title: 'Programming Paradigms',
-    //     items: [{
-    //       id: 'overview',
-    //       title: 'Overview'
-    //     }, {
-    //       id: 'imperative',
-    //       title: 'Imperative'
-    //     }]
-    //   }, {
-    //     id: 'programminglanguages',
-    //     title: 'Programming Languages',
-    //     items: [{
-    //       id: 'overview',
-    //       title: 'Overview'
-    //     }, {
-    //       id: 'java',
-    //       title: 'Java'
-    //     }]
-    //   }]
-    // };
-
-    //return of(config);
+      );
   }
 
-  getConfigById(program: string, product: string) {
-    if (!program) {
-      return rxThrow('Invalid program.');
-    }
+  getBucketConfig(bucket: string): Observable<Bucket> {
+    return this.getConfig()
+      .pipe(
+        switchMap<Program, Bucket>(program => {
+          let result: Bucket | undefined = program.buckets.find(b => b.id === bucket);
 
-    return this.getConfig().pipe(
-      switchMap(config => {
-        return of(5);
-      })
-    )
+          if (result) {
+            return of(result);
+
+          } else {
+            return rxThrow(`Not found: bucket with '${bucket}'`);
+          }
+        })
+      );
+  }
+
+  getProductConfig(bucket: string, product: string): Observable<Product> {
+    return this.getBucketConfig(bucket)
+      .pipe(
+        switchMap<Bucket, Product>(b => {
+          let result: Product | undefined = b.products.find(p => p.id === product);
+
+          if (result) {
+            return of(result);
+          } else {
+            return rxThrow(`Not found: bucket with '${bucket}', product with ${product}`);
+          }
+        })
+      );
   }
 
   private parseConfigXml(xml: string): Observable<Program> {

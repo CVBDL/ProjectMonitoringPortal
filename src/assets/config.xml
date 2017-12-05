@@ -13,5 +13,43 @@
                 </ChartGroup>
             </Charts>
         </Product>
+        <Product title="C Sharp" id="csharp">
+            <Charts title="PROGRESS MATRIX">
+                <ChartGroup title="Trend" time="Dec 5, 2017">
+                    <Chart title="Weekly Trend" url="#" time="Dec 5, 2017" />
+                    <Chart title="Trend by Epic" url="#" time="Dec 5, 2017" />
+                    <Chart title="Trend by Team" url="#" time="Dec 5, 2017" />
+                </ChartGroup>
+                <ChartGroup title="Throughput-Velocity" time="Dec 5, 2017">
+                    <Chart title="Throughput-Velocity by sprint" url="#" time="Dec 5, 2017" />
+                </ChartGroup>
+            </Charts>
+        </Product>
+    </Bucket>
+    <Bucket title="Operating Systems" id="operatingsystems">
+        <Product title="Linux" id="linux">
+            <Charts title="PROGRESS MATRIX">
+                <ChartGroup title="Trend" time="Dec 5, 2017">
+                    <Chart title="Weekly Trend" url="#" time="Dec 5, 2017" />
+                    <Chart title="Trend by Epic" url="#" time="Dec 5, 2017" />
+                    <Chart title="Trend by Team" url="#" time="Dec 5, 2017" />
+                </ChartGroup>
+                <ChartGroup title="Throughput-Velocity" time="Dec 5, 2017">
+                    <Chart title="Throughput-Velocity by sprint" url="#" time="Dec 5, 2017" />
+                </ChartGroup>
+            </Charts>
+        </Product>
+        <Product title="Windows" id="windows">
+            <Charts title="PROGRESS MATRIX">
+                <ChartGroup title="Trend" time="Dec 5, 2017">
+                    <Chart title="Weekly Trend" url="#" time="Dec 5, 2017" />
+                    <Chart title="Trend by Epic" url="#" time="Dec 5, 2017" />
+                    <Chart title="Trend by Team" url="#" time="Dec 5, 2017" />
+                </ChartGroup>
+                <ChartGroup title="Throughput-Velocity" time="Dec 5, 2017">
+                    <Chart title="Throughput-Velocity by sprint" url="#" time="Dec 5, 2017" />
+                </ChartGroup>
+            </Charts>
+        </Product>
     </Bucket>
 </Products>
