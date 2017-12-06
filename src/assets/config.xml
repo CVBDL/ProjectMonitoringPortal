@@ -3,25 +3,35 @@
     <Bucket title="Programming Languages" id="programminglanguages">
         <Product title="Java" id="java">
             <Charts title="PROGRESS MATRIX">
-                <ChartGroup title="Trend" time="Dec 5, 2017">
-                    <Chart title="Weekly Trend" url="#" time="Dec 5, 2017" />
-                    <Chart title="Trend by Epic" url="#" time="Dec 5, 2017" />
-                    <Chart title="Trend by Team" url="#" time="Dec 5, 2017" />
+                <ChartGroup title="Trend">
+                    <Chart title="Weekly Trend" url="https://www.google.com" time="Dec 5, 2017" />
+                    <Chart title="Trend by Epic" url="https://www.google.com" time="Dec 5, 2017" />
+                    <Chart title="Trend by Team" url="https://www.google.com" time="Dec 5, 2017" />
                 </ChartGroup>
                 <ChartGroup title="Throughput-Velocity" time="Dec 5, 2017">
-                    <Chart title="Throughput-Velocity by sprint" url="#" time="Dec 5, 2017" />
+                    <Chart title="Throughput-Velocity by sprint" url="https://www.google.com" time="Dec 5, 2017" />
+                </ChartGroup>
+            </Charts>
+            <Charts title="QUALITY MATRIX">
+                <ChartGroup title="Trend">
+                    <Chart title="Weekly Trend" url="https://www.google.com" time="Dec 5, 2017" />
+                    <Chart title="Trend by Epic" url="https://www.google.com" time="Dec 5, 2017" />
+                    <Chart title="Trend by Team" url="https://www.google.com" time="Dec 5, 2017" />
+                </ChartGroup>
+                <ChartGroup title="Throughput-Velocity" time="Dec 5, 2017">
+                    <Chart title="Throughput-Velocity by sprint" url="https://www.google.com" time="Dec 5, 2017" />
                 </ChartGroup>
             </Charts>
         </Product>
         <Product title="C Sharp" id="csharp">
             <Charts title="PROGRESS MATRIX">
-                <ChartGroup title="Trend" time="Dec 5, 2017">
-                    <Chart title="Weekly Trend" url="#" time="Dec 5, 2017" />
-                    <Chart title="Trend by Epic" url="#" time="Dec 5, 2017" />
-                    <Chart title="Trend by Team" url="#" time="Dec 5, 2017" />
+                <ChartGroup title="Trend">
+                    <Chart title="Weekly Trend" url="https://www.google.com" time="Dec 5, 2017" />
+                    <Chart title="Trend by Epic" url="https://www.google.com" time="Dec 5, 2017" />
                 </ChartGroup>
-                <ChartGroup title="Throughput-Velocity" time="Dec 5, 2017">
-                    <Chart title="Throughput-Velocity by sprint" url="#" time="Dec 5, 2017" />
+                <ChartGroup title="Throughput-Velocity">
+                    <Chart title="Throughput-Velocity by week" url="https://www.google.com" time="Dec 5, 2017" />
+                    <Chart title="Throughput-Velocity by sprint" url="https://www.google.com" time="Dec 5, 2017" />
                 </ChartGroup>
             </Charts>
         </Product>

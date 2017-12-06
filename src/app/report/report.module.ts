@@ -1,3 +1,4 @@
+import { CommonModule } from '@angular/common';
 import { NgModule } from "@angular/core";
 import { FlexLayoutModule } from '@angular/flex-layout';
 
@@ -13,6 +14,7 @@ import { ReportComponent } from "./report.component";
 
 @NgModule({
   imports: [
+    CommonModule,
     FlexLayoutModule,
     MatButtonModule,
     MatIconModule,

@@ -9,6 +9,7 @@ import { ConfigService } from '../core/config.service';
 import { Bucket } from '../core/bucket.model';
 import { Product } from '../core/product.model';
 import { Observable } from 'rxjs/Observable';
+import { Chart } from '../core/chart.model';
 
 @Component({
   templateUrl: './report.component.html',
@@ -28,14 +29,13 @@ export class ReportComponent implements OnInit {
         const product: string = params.get('product');
 
         if (bucket && product) {
-          // specify a product
           return this.config.getProductConfig(bucket, product);
 
         } else if (bucket && !product) {
           return  this.config.getBucketConfig(bucket);
 
         } else {
-          return rxThrow('Invalid report route.');
+          return rxThrow('Invalid route.');
         }
       }))
       .subscribe((data: Bucket | Product) => {
@@ -45,7 +45,14 @@ export class ReportComponent implements OnInit {
         } else {
           this.product = data;
         }
+
+        console.log(this.bucket)
+        console.log(this.product)
       });
+  }
+
+  showChart(chart: Chart): void {
+    window.open(chart.url, chart.title);
   }
 
 }

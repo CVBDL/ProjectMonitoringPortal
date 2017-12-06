@@ -16,8 +16,10 @@
       </mat-panel-title>
     </mat-expansion-panel-header>
     <mat-nav-list *ngIf="navItem.items" dense>
-      <mat-list-item *ngFor="let subNavItem of navItem.items">
-        <a matLine routerLink="{{subNavItem.link}}">{{subNavItem.title}}</a>
+      <mat-list-item
+          *ngFor="let subNavItem of navItem.items"
+          routerLink="{{subNavItem.link}}">
+        <a matLine>{{subNavItem.title}}</a>
       </mat-list-item>
     </mat-nav-list>
   </mat-expansion-panel>
