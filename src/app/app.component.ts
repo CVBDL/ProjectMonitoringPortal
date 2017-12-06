@@ -32,30 +32,32 @@ export class AppComponent implements OnInit, OnDestroy {
   private generateNavItems() {
     let navItems: NavItem[] = [];
 
-    this.config.getConfig().subscribe(
-      config => {
-        config.program.buckets.forEach(bucket => {
-          let navItem = new NavItem();
-          navItem.id = bucket.id;
-          navItem.title = bucket.title;
+    this.config.getConfig()
+      .pipe(takeUntil(this.ngUnsubscribe))
+      .subscribe(
+        config => {
+          config.program.buckets.forEach(bucket => {
+            let navItem = new NavItem();
+            navItem.id = bucket.id;
+            navItem.title = bucket.title;
 
-          bucket.products.forEach(product => {
-            let subNavItem = new NavItem();
-            subNavItem.id = product.id;
-            subNavItem.title = product.title;
-            subNavItem.link = `${bucket.id}/${product.id}`;
+            bucket.products.forEach(product => {
+              let subNavItem = new NavItem();
+              subNavItem.id = product.id;
+              subNavItem.title = product.title;
+              subNavItem.link = `${bucket.id}/${product.id}`;
 
-            navItem.items.push(subNavItem);
+              navItem.items.push(subNavItem);
+            });
+
+            navItems.push(navItem);
           });
 
-          navItems.push(navItem);
-        });
-
-        this.navItems = navItems;
-      },
-      err => {
-        console.error('Error occurred generating nav', err);
-      }
-    );
+          this.navItems = navItems;
+        },
+        err => {
+          console.error('Error occurred generating nav', err);
+        }
+      );
   }
 }
