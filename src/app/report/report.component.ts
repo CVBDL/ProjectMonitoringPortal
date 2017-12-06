@@ -45,9 +45,6 @@ export class ReportComponent implements OnInit {
         } else {
           this.product = data;
         }
-
-        console.log(this.bucket)
-        console.log(this.product)
       });
   }
 

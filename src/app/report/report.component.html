@@ -3,8 +3,9 @@
   <section *ngFor="let charts of product.charts">
     <mat-divider></mat-divider>
     <h3 class="mat-subheading-2">{{charts.title}}</h3>
-    <div fxLayout="row">
-      <mat-nav-list fxFlex="25" *ngFor="let group of charts.groups">
+    <div fxLayout="row wrap">
+      <mat-nav-list fxFlex="100" fxFlex.md="50" fxFlex.lg="33" fxFlex.gt-lg="25"
+          *ngFor="let group of charts.groups">
         <h3 mat-subheader>{{group.title}}</h3>
         <mat-list-item
             *ngFor="let chart of group.charts"
