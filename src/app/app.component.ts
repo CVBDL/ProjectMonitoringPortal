@@ -1,4 +1,7 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, OnDestroy } from '@angular/core';
+
+import { Subject } from "rxjs/Subject";
+import { takeUntil } from "rxjs/operators/takeUntil";
 
 import { ConfigService } from './core/config.service';
 import { NavItem } from "./core/nav-item.model";
@@ -8,8 +11,10 @@ import { NavItem } from "./core/nav-item.model";
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.scss']
 })
-export class AppComponent implements OnInit {
+export class AppComponent implements OnInit, OnDestroy {
   navItems: NavItem[];
+
+  private ngUnsubscribe: Subject<boolean> = new Subject();
 
   constructor(private config: ConfigService) {
     this.navItems = [];
@@ -19,24 +24,31 @@ export class AppComponent implements OnInit {
     this.generateNavItems();
   }
 
+  ngOnDestroy(): void {
+    this.ngUnsubscribe.next();
+    this.ngUnsubscribe.complete();
+  }
+
   private generateNavItems() {
     let navItems: NavItem[] = [];
 
     this.config.getConfig().subscribe(
       config => {
-        config.buckets.forEach(bucket => {
-          let item = new NavItem();
-          item.id = bucket.id;
-          item.title = bucket.title;
+        config.program.buckets.forEach(bucket => {
+          let navItem = new NavItem();
+          navItem.id = bucket.id;
+          navItem.title = bucket.title;
 
           bucket.products.forEach(product => {
-            let subItem = new NavItem();
-            subItem.id = product.id;
-            subItem.title = product.title;
-            subItem.link = `${bucket.id}/${product.id}`;
-            item.items.push(subItem);
+            let subNavItem = new NavItem();
+            subNavItem.id = product.id;
+            subNavItem.title = product.title;
+            subNavItem.link = `${bucket.id}/${product.id}`;
+
+            navItem.items.push(subNavItem);
           });
-          navItems.push(item);
+
+          navItems.push(navItem);
         });
 
         this.navItems = navItems;

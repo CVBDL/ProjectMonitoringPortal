@@ -1,8 +1,10 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, OnDestroy } from '@angular/core';
 import { ActivatedRoute, ParamMap } from "@angular/router";
 
+import { Subject } from "rxjs/Subject";
 import { of } from "rxjs/observable/of";
 import { switchMap } from 'rxjs/operators/switchMap';
+import { takeUntil } from "rxjs/operators/takeUntil";
 import { _throw as rxThrow } from "rxjs/observable/throw";
 
 import { ConfigService } from '../core/config.service';
@@ -15,9 +17,11 @@ import { Chart } from '../core/chart.model';
   templateUrl: './report.component.html',
   styleUrls: ['./report.component.scss']
 })
-export class ReportComponent implements OnInit {
+export class ReportComponent implements OnInit, OnDestroy {
   bucket: Bucket;
   product: Product;
+
+  private ngUnsubscribe: Subject<boolean> = new Subject();
 
   constructor(private activatedRoute: ActivatedRoute,
               private config: ConfigService) { }
@@ -38,14 +42,25 @@ export class ReportComponent implements OnInit {
           return rxThrow('Invalid route.');
         }
       }))
-      .subscribe((data: Bucket | Product) => {
-        if (data instanceof Bucket) {
-          this.bucket = data;
+      .pipe(takeUntil(this.ngUnsubscribe))
+      .subscribe(
+        (data: Bucket | Product) => {
+          if (data instanceof Bucket) {
+            this.bucket = data;
 
-        } else {
-          this.product = data;
+          } else {
+            this.product = data;
+          }
+        },
+        err => {
+          console.error('Error showing report.', err);
         }
-      });
+    );
+  }
+
+  ngOnDestroy(): void {
+    this.ngUnsubscribe.next();
+    this.ngUnsubscribe.complete();
   }
 
   showChart(chart: Chart): void {

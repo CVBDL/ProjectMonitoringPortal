@@ -7,28 +7,29 @@ import { _throw as rxThrow } from "rxjs/observable/throw";
 import { switchMap } from 'rxjs/operators';
 
 import { Bucket } from "./bucket.model";
-import { Program } from "./program.model";
-import { Product } from "./product.model";
+import { Config } from "./config.model";
+import { Chart } from "./chart.model";
 import { Charts } from "./charts.model";
 import { ChartGroup } from "./chart-group.model";
-import { Chart } from "./chart.model";
+import { Product } from "./product.model";
+import { Program } from "./program.model";
 
 @Injectable()
 export class ConfigService {
   constructor(private http: HttpClient) { }
 
-  getConfig(): Observable<Program> {
+  getConfig(): Observable<Config> {
     return this.http.get('./assets/config.xml', { responseType: 'text' })
       .pipe(
-        switchMap(xml => this.parseConfigXml(xml))
+        switchMap(xml => this.parseFromXml(xml))
       );
   }
 
   getBucketConfig(bucket: string): Observable<Bucket> {
     return this.getConfig()
       .pipe(
-        switchMap<Program, Bucket>(program => {
-          let result: Bucket | undefined = program.buckets.find(b => b.id === bucket);
+        switchMap<Config, Bucket>(config => {
+          let result: Bucket | undefined = config.program.buckets.find(b => b.id === bucket);
 
           if (result) {
             return of(result);
@@ -48,6 +49,7 @@ export class ConfigService {
 
           if (result) {
             return of(result);
+
           } else {
             return rxThrow(`Not found: bucket with '${bucket}', product with ${product}`);
           }
@@ -55,12 +57,13 @@ export class ConfigService {
       );
   }
 
-  private parseConfigXml(xml: string): Observable<Program> {
+  private parseFromXml(xml: string): Observable<Config> {
     try {
       const parser = new DOMParser();
       const doc = parser.parseFromString(xml, "application/xml");
 
-      let config = new Program();
+      let config = new Config();
+      let program = new Program();
 
       const bucketNodeList = doc.getElementsByTagName('Bucket');
       const bucketLength = bucketNodeList.length;
@@ -108,7 +111,9 @@ export class ConfigService {
           bucket.products.push(product);
         }
 
-        config.buckets.push(bucket);
+        program.buckets.push(bucket);
+
+        config.program = program;
       }
 
       return of(config);
