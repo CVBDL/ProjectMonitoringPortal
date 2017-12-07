@@ -2,23 +2,20 @@ import { CommonModule } from '@angular/common';
 import { NgModule } from "@angular/core";
 import { FlexLayoutModule } from '@angular/flex-layout';
 
-import {
-  MatButtonModule,
-  MatIconModule,
-  MatListModule
-} from '@angular/material';
+import { MatListModule } from '@angular/material';
 
 import { ReportRoutingModule } from "./report-routing.module";
+import { SharedModule } from "../shared/shared.module";
 
 import { ReportComponent } from "./report.component";
+
 
 @NgModule({
   imports: [
     CommonModule,
     FlexLayoutModule,
-    MatButtonModule,
-    MatIconModule,
     MatListModule,
+    SharedModule,
     ReportRoutingModule
   ],
   declarations: [

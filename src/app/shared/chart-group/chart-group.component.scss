@@ -1,0 +1,9 @@
+@import '../core/style/helpers/helpers';
+
+:host {
+  display: block;
+}
+
+h3 {
+  @include pmp-text-ellipsis();
+}

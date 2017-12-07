@@ -17,6 +17,7 @@ import { Product } from '../core/product.model';
 import { Observable } from 'rxjs/Observable';
 import { Chart } from '../core/chart.model';
 
+
 @Component({
   templateUrl: './report.component.html',
   styleUrls: ['./report.component.scss']
@@ -47,28 +48,22 @@ export class ReportComponent implements OnInit, OnDestroy {
         }
       }))
       .pipe(takeUntil(this.ngUnsubscribe))
-      .subscribe(
-        (data: Bucket | Product) => {
-          if (data instanceof Bucket) {
-            this.bucket = data;
+      .subscribe((data: Bucket | Product) => {
+        if (data instanceof Bucket) {
+          this.bucket = data;
 
-          } else {
-            this.product = data;
-          }
-        },
-        err => {
-          console.error('Error showing report.', err);
+        } else {
+          this.product = data;
         }
-    );
+
+      }, err => {
+        console.error('Error showing report.', err);
+      });
   }
 
   ngOnDestroy(): void {
     this.ngUnsubscribe.next();
     this.ngUnsubscribe.complete();
-  }
-
-  showChart(chart: Chart): void {
-    window.open(chart.url, chart.title);
   }
 
 }

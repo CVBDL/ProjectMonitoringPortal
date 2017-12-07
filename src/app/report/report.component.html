@@ -4,17 +4,13 @@
     <mat-divider></mat-divider>
     <h3 class="mat-subheading-2">{{charts.title}}</h3>
     <div fxLayout="row wrap">
-      <mat-nav-list fxFlex="100" fxFlex.md="50" fxFlex.lg="33" fxFlex.gt-lg="25"
-          *ngFor="let group of charts.groups">
-        <h3 mat-subheader>{{group.title}}</h3>
-        <mat-list-item
-            *ngFor="let chart of group.charts"
-            (click)="showChart(chart)">
-          <mat-icon mat-list-icon color="accent">insert_chart</mat-icon>
-          <h4 mat-line>{{chart.title}}</h4>
-          <p mat-line>{{chart.time}}</p>
-        </mat-list-item>
-      </mat-nav-list> 
+      <div *ngFor="let group of charts.groups"
+          fxFlex="100"
+          fxFlex.md="50"
+          fxFlex.lg="33"
+          fxFlex.gt-lg="25">
+        <pmp-chart-group [group]="group"></pmp-chart-group>
+      </div>
     </div>
   </section>
 </div>
