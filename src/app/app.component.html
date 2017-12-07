@@ -9,7 +9,7 @@
   </div>  
 </header>
 <nav>
-  <mat-expansion-panel *ngFor="let navItem of navItems" [expanded]='true'>
+  <mat-expansion-panel *ngFor="let navItem of navItems" [expanded]="isNavItemExpanded">
     <mat-expansion-panel-header>
       <mat-panel-title class="mat-body-1">
         {{navItem.title}}

@@ -1,5 +1,9 @@
-import { Component, OnInit, OnDestroy } from '@angular/core';
 import { ActivatedRoute, ParamMap } from "@angular/router";
+import {
+  Component,
+  OnInit,
+  OnDestroy
+} from '@angular/core';
 
 import { Subject } from "rxjs/Subject";
 import { of } from "rxjs/observable/of";
