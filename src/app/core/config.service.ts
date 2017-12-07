@@ -4,7 +4,8 @@ import { Injectable } from "@angular/core";
 import { Observable } from 'rxjs/Observable';
 import { of } from 'rxjs/observable/of';
 import { _throw as rxThrow } from "rxjs/observable/throw";
-import { switchMap } from 'rxjs/operators';
+import { switchMap } from 'rxjs/operators/switchMap';
+import { tap } from "rxjs/operators/tap";
 
 import { Bucket } from "./bucket.model";
 import { Config } from "./config.model";
@@ -16,15 +17,35 @@ import { Program } from "./program.model";
 
 @Injectable()
 export class ConfigService {
+  /**
+   * Parsed configuration cache.
+   */
+  private cache: Config;
+
   constructor(private http: HttpClient) { }
 
-  getConfig(): Observable<Config> {
-    return this.http.get('./assets/config.xml', { responseType: 'text' })
+  /**
+   * Get full config.
+   * @param force Force to fetch config from server.
+   */
+  getConfig(force: boolean = false): Observable<Config> {
+    if (!force && this.cache) {
+      return of(this.cache);
+    } else {
+      return this.http.get('./assets/config.xml', { responseType: 'text' })
       .pipe(
-        switchMap(xml => this.parseFromXml(xml))
-      );
+        switchMap(xml => this.parseFromXml(xml)),
+        tap(config => {
+          this.cache = config;
+        })
+      )
+    }
   }
 
+  /**
+   * Get bucket config from full config.
+   * @param bucket Bucket name like services.
+   */
   getBucketConfig(bucket: string): Observable<Bucket> {
     return this.getConfig()
       .pipe(
@@ -41,6 +62,11 @@ export class ConfigService {
       );
   }
 
+  /**
+   * Get product config from full config.
+   * @param bucket Bucket name like: services.
+   * @param product Product name.
+   */
   getProductConfig(bucket: string, product: string): Observable<Product> {
     return this.getBucketConfig(bucket)
       .pipe(
@@ -57,6 +83,10 @@ export class ConfigService {
       );
   }
 
+  /**
+   * Generate config object from XML string.
+   * @param xml Config XML string format.
+   */
   private parseFromXml(xml: string): Observable<Config> {
     try {
       const parser = new DOMParser();
