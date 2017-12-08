@@ -15,9 +15,9 @@
         {{navItem.title}}
       </mat-panel-title>
     </mat-expansion-panel-header>
-    <mat-nav-list *ngIf="navItem.items" dense>
+    <mat-nav-list *ngIf="navItem.getSubNavItems()" dense>
       <mat-list-item
-          *ngFor="let subNavItem of navItem.items"
+          *ngFor="let subNavItem of navItem.getSubNavItems()"
           routerLink="{{subNavItem.link}}">
         <a matLine>{{subNavItem.title}}</a>
       </mat-list-item>

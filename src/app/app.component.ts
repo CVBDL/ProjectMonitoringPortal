@@ -13,6 +13,7 @@ import { ConfigService } from './core/config.service';
 import { NavItem } from "./core/nav-item.model";
 import { switchMap } from 'rxjs/operators/switchMap';
 
+
 @Component({
   selector: 'pmp-root',
   templateUrl: './app.component.html',
@@ -55,15 +56,17 @@ export class AppComponent implements OnInit, OnDestroy {
       .pipe(switchMap(config => {
         let navItems: NavItem[] = [];
         config.program.buckets.forEach(bucket => {
-          let navItem = new NavItem();
-          navItem.id = bucket.id;
-          navItem.title = bucket.title;
+          if (!bucket.id) return;
+
+          let navItem = new NavItem(bucket.id, bucket.id, bucket.title);
           bucket.products.forEach(product => {
-            let subNavItem = new NavItem();
-            subNavItem.id = product.id;
-            subNavItem.title = product.title;
-            subNavItem.link = `${bucket.id}/${product.id}`;
-            navItem.items.push(subNavItem);
+            if (!product.id) return;
+
+            let subNavItemLink = `${bucket.id}/${product.id}`;
+            let subNavItem = new NavItem(
+              product.id, subNavItemLink, product.title);
+
+            navItem.addSubNavItem(subNavItem);
           });
           navItems.push(navItem);
         });

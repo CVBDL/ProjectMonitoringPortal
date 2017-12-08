@@ -17,6 +17,11 @@ export class ChartGroupComponent {
    * @param chart 
    */
   showChart(chart: Chart): void {
-    window.open(chart.url, chart.title);
+    if (chart.url) {
+      window.open(chart.url, chart.title);
+
+    } else {
+      window.alert('The link of chart is not specified.');
+    }
   }
 }
